@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
-	render() {
-		return (
-			<div className="container">
-				Application root
-			</div>
-		);
-	}
-}
+const App = ({ children }) => {
+	return (
+		<div className="root-router">
+			{ children }
+		</div>
+	);	
+};
+
+export default App;
+

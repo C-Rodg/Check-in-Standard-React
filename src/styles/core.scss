@@ -1,0 +1,23 @@
+@import 'base';
+@import '~normalize.css/normalize';
+@import '~frow/css/frow.min';
+@import 'utils';
+@import './fonts/roboto/roboto';
+@import './fonts/material-design-icons/material-icons';
+
+html {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'robotoregular', Helvetica, Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+	box-size: inherit;
+}
