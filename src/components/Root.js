@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import React, { Component, PropTypes } from 'react';
+import { Router } from 'react-router';
+import { Provider } from 'react-redux';
 import routes from '../routes';
-import RootAdmin from './RootAdmin';
-import RootCheckin from './RootCheckin';
 
 export default class Root extends Component {
 	render() {
+		const { store, history } = this.props;
 		return (
-			<Router history={browserHistory} routes={routes} />				
+			<Provider store={store}>
+				<Router history={history} routes={routes} />				
+			</Provider>
 		);
 	}
 }
+
+Root.propTypes = {
+	store: PropTypes.object.isRequired,
+	history: PropTypes.object.isRequired
+};

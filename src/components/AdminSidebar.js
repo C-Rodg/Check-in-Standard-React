@@ -2,30 +2,34 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class AdminSidebar extends Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
-			<div className="admin-sidebar frow row-start">
-				<ul className="col-xs-1-12">
-					<li><Link to="/checkin" activeClassName="nav-active">
+			<div className="admin-sidebar">
+				<ul className="frow row-start">
+					<Link to="/checkin" activeClassName="nav-active">
 						<i className="material-icons">group</i>
-						Registration
-					</Link></li>
-					<li><Link to="/eval" activeClassName="nav-active">
+						<span className="nav-icon-label">Registration</span>
+					</Link>
+					<Link to="/eval" activeClassName="nav-active">
 						<i className="material-icons">edit</i>
-						Evaluations
-					</Link></li>
-					<li><Link to="/admin/search" activeClassName="nav-active">
+						<span className="nav-icon-label">Evaluations</span>
+					</Link>
+					<Link to="/admin/search" activeClassName="nav-active">
 						<i className="material-icons">search</i>
-						Search
-					</Link></li>
-					<li><Link to="/admin/print" activeClassName="nav-active">
+						<span className="nav-icon-label">Search</span>
+					</Link>
+					<Link to="/admin/print" activeClassName="nav-active">
 						<i className="material-icons">print</i>
-						Print Settings
-					</Link></li>
-					<li><Link to="/admin/config" activeClassName="nav-active">
+						<span className="nav-icon-label">Print Settings</span>
+					</Link>
+					<Link to="/admin/config" activeClassName="nav-active">
 						<i className="material-icons">settings</i>
-						Configuration
-					</Link></li>
+						<span className="nav-icon-label">Configuration</span>
+					</Link>
 				</ul>
 			</div>
 		);

@@ -14,6 +14,8 @@ html, body {
 	padding: 0;
 	height: 100%;
 	font-family: 'robotoregular', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	background-color: #f9f9f9;
 }
 
 *,
@@ -21,3 +23,5 @@ html, body {
 *:after {
 	box-size: inherit;
 }
+
+@import 'rootAdmin';
