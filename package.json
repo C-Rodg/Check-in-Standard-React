@@ -7,6 +7,11 @@
     "url": "https://github.com/C-Rodg/Check-in-Standard-React.git",
     "type": "git"
   },
+  "scripts": {
+    "test": "",
+    "start": "node server",
+    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors"
+  },
   "author": "Curtis Rodgers",
   "license": "MIT",
   "dependencies": {
@@ -22,11 +27,6 @@
     "redux-logger": "^2.7.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0"
-  },
-  "scripts": {
-    "test": "",
-    "start": "node server",
-    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
