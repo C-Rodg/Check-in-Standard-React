@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const AdminSidebar = (props) => {
 	return (
 			<div className="admin-sidebar">
-				<ul className="frow row-start">
+				<ul>
 					<Link to="/checkin" activeClassName="nav-active">
 						<i className="material-icons">group</i>
 						<span className="nav-icon-label">Registration</span>

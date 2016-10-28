@@ -28,7 +28,7 @@ class RootAdmin extends Component {
 		return (
 			<div className="root-admin">
 				<AdminTitlebar onMenuToggle={this.handleMenuToggle} />
-				<div className={"root-content-sidebar frow row-start " + (this.state.menuOpen ? '' : 'menu-closed')}>
+				<div className={"root-content-sidebar " + (this.state.menuOpen ? '' : 'menu-closed')}>
 					<AdminSidebar />
 					<div className="root-admin-content">
 						{this.props.children}

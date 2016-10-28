@@ -4,7 +4,7 @@ export default class AdminConfg extends Component {
 	render() {
 		return (
 			<div>
-				<p>Admin Configuration</p>
+				Admin Config
 				
 			</div>
 		);

@@ -34,20 +34,20 @@ class AdminTitlebar extends Component {
 		});
 
 		return (
-			<div className="admin-titlebar frow nowrap flex-align-center">
-				<img src={require("../static/validar-logo.png")} alt="Validar" />
-				<span className="titlebar-menu-toggle" onClick={this.props.onMenuToggle} ><i className="material-icons">menu</i></span>
-				<div className="titlebar-content">
-					<div className="frow row-end">										
-						<div className="col-xs-3-4 admin-search-box-container">
-							<form onSubmit={this.onSearchSubmit}>	
-								<input className="admin-search-box" type="text" placeholder={searchText}/>
-								<i className="material-icons search-icon">search</i>																						
-								<FilterDropdown onFilterSelect={this.onFilterSelect} filters={this.props.adminFilters}/>															
-							</form>
-						</div>						
-						<div className="text-right col-xs-1-12"><span className="walkin-btn"><i className="material-icons mi-37">add</i></span></div>
-					</div>
+			<div className="admin-titlebar container-fluid">
+				<div className="admin-titlebar-controls">
+					<img src={require("../static/validar-logo.png")} alt="Validar" />
+					<span className="titlebar-menu-toggle" onClick={this.props.onMenuToggle} ><i className="material-icons">menu</i></span>
+				</div>
+				<div className="titlebar-content row">									
+					<div className="col-xs-9 admin-search-box-container">
+						<form onSubmit={this.onSearchSubmit}>	
+							<input className="admin-search-box" type="text" placeholder={searchText}/>
+							<i className="material-icons search-icon">search</i>																						
+							<FilterDropdown onFilterSelect={this.onFilterSelect} filters={this.props.adminFilters}/>															
+						</form>
+					</div>						
+					<div className="text-right col-xs-3"><span className="walkin-btn"><i className="material-icons mi-37">add</i></span></div>
 				</div>
 			</div>
 		);
