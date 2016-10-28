@@ -21,7 +21,7 @@ html, body {
 *,
 *:before,
 *:after {
-	box-size: inherit;
+	box-sizing: inherit;
 }
 
 @import 'rootAdmin';

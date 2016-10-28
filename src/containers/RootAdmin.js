@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleMenuOpen } from '../actions';
 
 import AdminTitlebar from './AdminTitlebar';
-import AdminSidebar from './AdminSidebar';
+import AdminSidebar from '../components/AdminSidebar';
 
 class RootAdmin extends Component {
 	constructor (props) {
@@ -27,7 +27,7 @@ class RootAdmin extends Component {
 	render() {
 		return (
 			<div className="root-admin">
-				<AdminTitlebar onMenuToggle={this.handleMenuToggle}/>
+				<AdminTitlebar onMenuToggle={this.handleMenuToggle} />
 				<div className={"root-content-sidebar frow row-start " + (this.state.menuOpen ? '' : 'menu-closed')}>
 					<AdminSidebar />
 					<div className="root-admin-content">

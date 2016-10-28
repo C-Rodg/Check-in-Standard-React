@@ -1,1 +1,1 @@
-export const TOGGLE_MENU_OPEN = 'TOGGLE_MENU_OPEN';
+export const SET_ADMIN_FILTER = 'SET_ADMIN_FILTER';

@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: [
-		'webpack-dev-server/client?http://localhost:3000',
+		'webpack-dev-server/client?http://crodgers.corp.validar.com:3000',
 		path.join(__dirname, 'src/index.js')
 	],
 	output : {

@@ -9,9 +9,9 @@ new WebpackDevServer(webpack(config), {
 	historyApiFallback : true,
 	quiet : false,
 	noInfo : false
-}).listen(3000, 'localhost', function(err) {
+}).listen(3000, 'crodgers.corp.validar.com', function(err) {
 	if (err) {
 		console.log(err);
 	}
-	console.log("Now listening at localhost:3000");
+	console.log("Now listening at crodgers.corp.validar.com:3000");
 });

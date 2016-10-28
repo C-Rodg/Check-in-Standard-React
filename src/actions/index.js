@@ -1,8 +1,8 @@
 import * as types from './types';
 
-export function toggleMenuOpen() {
-	console.log("TOGGLING!");
+export function setAdminFilter(filter) {
 	return {
-		type : types.TOGGLE_MENU_OPEN
+		type : types.SET_ADMIN_FILTER,
+		payload : filter.id
 	};
 }

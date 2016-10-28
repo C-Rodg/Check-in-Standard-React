@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
-export default class AdminSidebar extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
+const AdminSidebar = (props) => {
+	return (
 			<div className="admin-sidebar">
 				<ul className="frow row-start">
 					<Link to="/checkin" activeClassName="nav-active">
@@ -33,5 +28,6 @@ export default class AdminSidebar extends Component {
 				</ul>
 			</div>
 		);
-	}
 }
+
+export default AdminSidebar;

@@ -61,7 +61,7 @@
 		.titlebar-content {
 			display: inline-block;
 			width: 100%;
-
+			padding-top:7px;
 			input {
 				margin-bottom: 0;
 			}
@@ -72,6 +72,125 @@
 			margin-left:15px;
 			padding: 8px;
 		}
+
+		.titlebar-menu-toggle:hover,
+		.titlebar-menu-toggle:active,
+		.titlebar-menu-toggle:focus {
+			color: #e08433;
+		}
+
+		.admin-search-box-container {
+			position: relative;
+		}
+
+		.search-icon {
+			position: absolute;
+			left: 8px;
+			top: 7px;
+			color: #fff;
+			transition: color 0.2s ease-in-out;
+		}
+
+		.admin-search-box {
+			background-color: rgba(255,255,255,0.3);
+			color: #fff;
+			transition: all 0.2s ease-in-out;
+			height: 35px;
+			border: none;
+			outline: none;
+			border-radius: 3px;
+			padding: 8px 8px 8px 40px;
+			box-shadow: none;
+			width: 80%;
+			max-width:600px;			
+		}
+
+		.admin-search-box:focus {
+			color: #333;
+			background-color: #fff;
+		}
+
+		.admin-search-box:focus + .search-icon {
+			color: #333;
+		}
+
+		.walkin-btn i{
+			cursor:pointer;
+			margin-right:15px;
+			text-align: center;
+			vertical-align: middle;
+			color: #fff;
+			background-color: rgba(255,255,255,0.3);
+			border-radius: 50%;
+			font-size: 37px;
+			transition: color 0.3s ease-in-out;
+		}
+
+		.filter-arrow {
+			cursor: pointer;
+			display: inline-block;
+			height: 36px;
+			padding-left:7px;
+		}
+
+		.filter-arrow i {
+			vertical-align: middle;		
+		}
+
+		.filter-arrow:hover,
+		.filter-arrow:active,
+		.filter-arrow:focus,
+		.walkin-btn i:hover,
+		.walkin-btn i:active,
+		.walkin-btn i:focus {
+			color: #e08433;
+		}
+	}
+
+	.filter-container {
+		display:inline-block;
+		position: relative;
+		padding: 0 5px;
+		z-index:9;
+	}
+
+	.filter-dropdown {
+		position: absolute;
+		background-color: #fff;
+		color: rgba(0,0,0,0.87);
+		min-width: 180px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		right: 0;
+	}
+
+	.filter-dropdown-closed {
+		display: none;
+	}
+	
+	.filter-dropdown-open {
+		display: block;
+	}
+
+	.filter-dropdown li {
+		cursor: pointer;
+		display: block;
+		padding: 16px 16px;
+		border-bottom: 1px solid #e5e5e5;
+		font-family: 'robotolight', Helvetica, Arial, sans-serif;
+	}
+
+	.filter-dropdown li:hover,
+	.filter-dropdown li:active,
+	.filter-dropdown li:focus {
+		background-color: #eee;
+	}
+
+	.filter-dropdown span {
+		float: right;
+	}
+
+	.filter-dropdown li:last-child {
+		border-bottom: 0;
 	}
 
 	.root-admin-content {
