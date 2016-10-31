@@ -15,6 +15,7 @@
   "author": "Curtis Rodgers",
   "license": "MIT",
   "dependencies": {
+    "bootstrap-grid": "file:./node_modules/bootstrap-grid",
     "lodash": "^4.16.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

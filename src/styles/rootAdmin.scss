@@ -212,4 +212,34 @@
 	.menu-closed .root-admin-content {
 		margin-left: 60px;
 	}
+
+	.root-admin-content {
+		padding-top: 20px;
+	}
+
+	.root-admin-content .stats-wrapper .row {
+		margin-bottom: 20px;
+	}
+
+	.stats-box svg {
+		float: left;
+	}
+
+	.stats-content {
+		height: 100%;
+		margin-left: 100px;
+		text-align: center;
+	}
+
+	.stats-content h1 {
+		font-size: 28px;
+		font-family : 'roboto_condensedlight', 'robotoregular', Helvetica, Arial, sans-serif;
+		font-weight: normal;
+	}
+
+	.stats-content p {
+		font-size: 28px;
+		font-family: 'roboto_condensedregular', 'robotobold', 'robotoregular', Helvetica, Arial, sans-serif;
+		font-weight: normal;
+	}
 }
