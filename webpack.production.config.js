@@ -55,7 +55,6 @@ module.exports = {
 		}]
 	},
 	postcss: [
-		//require('postcss-flexboxfixer'),
 		require('autoprefixer')
 	]
 };

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { SET_ADMIN_FILTER } from '../actions/types';
+import { SET_ADMIN_FILTER, SEARCH_REGISTRANTS_SUCCESS, SEARCH_REGISTRANTS_ERROR } from '../actions/types';
 
 const initialState = {
 	all : {
@@ -49,6 +49,19 @@ export const adminFilters = (state = initialState, action) => {
 			});
 			return newState;
 		default:
+			return state;
+	}
+};
+
+export const searchRegistrants = (state = [], action) => {
+	switch(action.type) {
+		case SEARCH_REGISTRANTS_SUCCESS : 
+			console.log(action);
+			return state;
+		case SEARCH_REGISTRANTS_ERROR : 
+			console.log(action);
+			return state;
+		default : 
 			return state;
 	}
 };

@@ -47,5 +47,5 @@ module.exports = {
         	test: /\.(ttf|eot|svg|png|jpg)(\?[a-z0-9#=&.]+)?$/, 
         	loader: 'file' 
         }]
-	}
+	}	
 };

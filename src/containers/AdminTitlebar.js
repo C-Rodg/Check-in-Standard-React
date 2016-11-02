@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { setAdminFilter } from '../actions';
+import { setAdminFilter, searchRegistrants } from '../actions';
 import FilterDropdown from '../components/FilterDropdown';
 
 class AdminTitlebar extends Component {
@@ -11,8 +11,13 @@ class AdminTitlebar extends Component {
 		super(props);
 		console.log(props);
 		
+		// Set component state
+		this.state = { searchText : "" };
+
 		// Bind methods
 		this.onFilterSelect = this.onFilterSelect.bind(this);
+		this.handleSearchChange = this.handleSearchChange.bind(this);
+		this.onSearchSubmit = this.onSearchSubmit.bind(this);
 	}
 
 
@@ -20,9 +25,13 @@ class AdminTitlebar extends Component {
 		this.props.adminFilterSelected(filter);
 	}
 
+	handleSearchChange(event) {
+		this.setState({searchText : event.target.value });
+	}
+
 	onSearchSubmit(event) {
 		event.preventDefault();
-		// TODO: SEARCH FOR REGISTRANTS
+		this.props.searchRegistrants(this.state.searchText);
 	}
 
 	render(){
@@ -42,7 +51,7 @@ class AdminTitlebar extends Component {
 				<div className="titlebar-content row">									
 					<div className="col-xs-9 admin-search-box-container">
 						<form onSubmit={this.onSearchSubmit}>	
-							<input className="admin-search-box" type="text" placeholder={searchText}/>
+							<input className="admin-search-box" type="text" placeholder={searchText} onChange={this.handleSearchChange} value={this.state.searchText}/>
 							<i className="material-icons search-icon">search</i>																						
 							<FilterDropdown onFilterSelect={this.onFilterSelect} filters={this.props.adminFilters}/>															
 						</form>
@@ -64,7 +73,8 @@ const mapStateToProps = (state) => {
 // Incoming props method 'adminFilterSelected' to call action creator
 const mapDispatchToProps = (dispatch) => {
 	return {
-		adminFilterSelected : filter => dispatch(setAdminFilter(filter))
+		adminFilterSelected : filter => dispatch(setAdminFilter(filter)),
+		searchRegistrants : searchText => dispatch(searchRegistrants(searchText))
 	};
 };
 
