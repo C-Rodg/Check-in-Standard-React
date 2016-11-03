@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleMenuOpen } from '../actions';
 
 import AdminTitlebar from './AdminTitlebar';
 import AdminSidebar from '../components/AdminSidebar';
@@ -38,17 +37,6 @@ class RootAdmin extends Component {
 		);
 	}
 }
-
-// Moving menuToggle to component state
-const mapStateToProps = (state) => {
-	return {
-		menuOpen: state.menuOpen
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return 
-};
 
 export default connect(
 

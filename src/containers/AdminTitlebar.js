@@ -2,17 +2,42 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { setAdminFilter, searchRegistrants } from '../actions';
+import { setAdminFilter, searchRegistrants } from '../actions/registrants';
 import FilterDropdown from '../components/FilterDropdown';
+
+const ADMIN_FILTERS = {
+	all : {
+		id : 'all',
+		name : 'All Registrants',
+		msg : 'Find a registrant...'
+	},
+	preprint : {
+		id : 'preprint',
+		name : 'Pre-Prints',
+		msg : 'Find a pre-print registrant...'
+	},
+	walkin: {
+		id : 'walkin',
+		name : 'Walk-ins',
+		msg : 'Find a checked-in registrant...'
+	},
+	attendeetype : {
+		id : 'attendeetype',
+		name : 'Attendee Type',
+		msg : 'Search by attendee type...'
+	}
+};
 
 class AdminTitlebar extends Component {
 
 	constructor(props) {
 		super(props);
-		console.log(props);
 		
 		// Set component state
-		this.state = { searchText : "" };
+		this.state = { 
+			searchText : "",
+			searchPlaceholder : ADMIN_FILTERS[this.props.currentFilter].msg 
+		};
 
 		// Bind methods
 		this.onFilterSelect = this.onFilterSelect.bind(this);
@@ -20,6 +45,11 @@ class AdminTitlebar extends Component {
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			searchPlaceholder : ADMIN_FILTERS[nextProps.currentFilter].msg
+		});
+	}
 
 	onFilterSelect(filter) {		
 		this.props.adminFilterSelected(filter);
@@ -35,13 +65,6 @@ class AdminTitlebar extends Component {
 	}
 
 	render(){
-		let searchText;
-		Object.keys(this.props.adminFilters).forEach((val, key) => {
-			if(this.props.adminFilters[val].selected){
-				searchText = this.props.adminFilters[val].msg;
-			}
-		});
-
 		return (
 			<div className="admin-titlebar container-fluid">
 				<div className="admin-titlebar-controls">
@@ -51,9 +74,9 @@ class AdminTitlebar extends Component {
 				<div className="titlebar-content row">									
 					<div className="col-xs-9 admin-search-box-container">
 						<form onSubmit={this.onSearchSubmit}>	
-							<input className="admin-search-box" type="text" placeholder={searchText} onChange={this.handleSearchChange} value={this.state.searchText}/>
+							<input className="admin-search-box" type="text" placeholder={this.state.searchPlaceholder} onChange={this.handleSearchChange} value={this.state.searchText}/>
 							<i className="material-icons search-icon">search</i>																						
-							<FilterDropdown onFilterSelect={this.onFilterSelect} filters={this.props.adminFilters}/>															
+							<FilterDropdown onFilterSelect={this.onFilterSelect} filters={ADMIN_FILTERS} selectedFilter={this.props.currentFilter} />															
 						</form>
 					</div>						
 					<div className="text-right col-xs-3"><span className="walkin-btn"><i className="material-icons mi-37">add</i></span></div>
@@ -63,10 +86,10 @@ class AdminTitlebar extends Component {
 	}
 }
 
-// Incoming props from state 'adminFilters'
+// Incoming props from state 'registrants'
 const mapStateToProps = (state) => {
 	return {
-		adminFilters: state.adminFilters
+		currentFilter: state.registrants.currentFilter
 	};
 };
 

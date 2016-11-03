@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 
-const FilterItem = ({filter, onFilterSelect}) => {
+const FilterItem = ({name, selectKey, selected, onFilterSelect}) => {
 	return (
-		<li onClick={() => onFilterSelect(filter)}>{filter.name} {filter.selected && <span><i className="material-icons">done</i></span>}</li>
+		<li onClick={() => onFilterSelect(selectKey)}>
+			{name} {selected && <span><i className="material-icons">done</i></span>}
+		</li>
 	);
 };
 
@@ -32,7 +34,11 @@ export default class FilterDropdown extends Component {
 	render() {
 
 		const filterItems = _.map(this.props.filters, (val, key) => {
-			return <FilterItem key={key} filter={val} onFilterSelect={this.props.onFilterSelect} />
+			let selected = false;
+			if(key === this.props.selectedFilter){
+				selected = true;
+			}
+			return <FilterItem key={key} selected={selected} name={val.name} selectKey={key} onFilterSelect={this.props.onFilterSelect} />
 		});
 
 		return (
