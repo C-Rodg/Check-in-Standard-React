@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 
 import AdminTitlebar from './AdminTitlebar';
 import AdminSidebar from '../components/AdminSidebar';
 
-class RootAdmin extends Component {
+export default class RootAdmin extends Component {
 	constructor (props) {
 		super(props);
 
@@ -38,6 +38,6 @@ class RootAdmin extends Component {
 	}
 }
 
-export default connect(
+// export default connect(
 
-)(RootAdmin);
+// )(RootAdmin);

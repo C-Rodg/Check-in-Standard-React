@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -30,7 +30,7 @@ const ADMIN_FILTERS = {
 
 class AdminTitlebar extends Component {
 
-	constructor(props) {
+	constructor(props, context) {
 		super(props);
 		
 		// Set component state
@@ -45,10 +45,14 @@ class AdminTitlebar extends Component {
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);
 	}
 
+
+
 	componentWillReceiveProps(nextProps) {
-		this.setState({
-			searchPlaceholder : ADMIN_FILTERS[nextProps.currentFilter].msg
-		});
+		if(this.props !== nextProps){
+			this.setState({
+				searchPlaceholder : ADMIN_FILTERS[nextProps.currentFilter].msg
+			});
+		}
 	}
 
 	onFilterSelect(filter) {		
@@ -61,7 +65,10 @@ class AdminTitlebar extends Component {
 
 	onSearchSubmit(event) {
 		event.preventDefault();
-		this.props.searchRegistrants(this.state.searchText);
+		this.props.searchRegistrants(this.state.searchText, this.props.currentFilter);
+		if(!this.context.router.isActive('/admin/search')){
+			this.context.router.push('/admin/search');
+		}
 	}
 
 	render(){
@@ -86,6 +93,10 @@ class AdminTitlebar extends Component {
 	}
 }
 
+AdminTitlebar.contextTypes = {
+	router : PropTypes.func.isRequired
+};
+
 // Incoming props from state 'registrants'
 const mapStateToProps = (state) => {
 	return {
@@ -97,7 +108,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		adminFilterSelected : filter => dispatch(setAdminFilter(filter)),
-		searchRegistrants : searchText => dispatch(searchRegistrants(searchText))
+		searchRegistrants : (searchText, filter) => dispatch(searchRegistrants(searchText, filter))
 	};
 };
 

@@ -40,6 +40,15 @@ h1,h2,h3,h4,h5,h6,p {
 	padding: 0;
 }
 
+select:focus, select:hover, select:active,
+input:focus, input:hover, input:active {
+	outline: 0;
+}
+
 @import 'rootAdmin';
 
 @import 'donutChart';
+
+@import 'forms';
+
+@import 'modals';

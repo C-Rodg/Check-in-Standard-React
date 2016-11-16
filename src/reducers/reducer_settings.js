@@ -35,8 +35,9 @@ export const settings = (state = INITIAL_STATE, action) => {
 			return state;
 
 		case GET_REGISTRATION_STATS_SUCCESS:
-			console.log(action);
-			return state;
+			return Object.assign({}, state, {
+				registrationStats : action.payload
+			});
 		case GET_REGISTRATION_STATS_ERROR:
 			return state;
 

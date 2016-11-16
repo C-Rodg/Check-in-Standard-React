@@ -31,16 +31,13 @@ export const CREATE_REG_ID_TRACKING_ERROR = 'CREATE_REG_ID_TRACKING_ERROR';
 
 //-------------------------- ACTION CREATORS ----------------------------------//
 
-export function getRegistrationStats() {
+export function getRegistrationStats(data) {
 	return function(dispatch) {
 		axios.post(`${CC_URL}GetRegistrationStats`, {})
 			.then((response) => {
-				console.log(response);
 				dispatch(getRegistrationStatsSuccess(response));
 			})
 			.catch((err) => {
-				console.log(err);
-				console.log("FOUND AN ERROR!");
 				dispatch(getRegistrationStatsError(err));
 			});
 	};
